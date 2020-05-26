@@ -2,7 +2,7 @@ package logging
 
 import (
 	"fmt"
-	"github.com/go-gin-example/pkg/setting"
+	"go_blog/go-gin-example/pkg/setting"
 	"time"
 
 	//"github.com/go-gin-example/pkg/setting"

@@ -2,16 +2,24 @@ package main
 
 import (
 	"fmt"
+
+	"go_blog/go-gin-example/models"
+	"go_blog/go-gin-example/pkg/gredis"
+	"go_blog/go-gin-example/pkg/logging"
+	"go_blog/go-gin-example/pkg/setting"
+	"go_blog/go-gin-example/pkg/util"
+	"go_blog/go-gin-example/routers"
 	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/go-gin-example/models"
-	"github.com/go-gin-example/pkg/gredis"
-	"github.com/go-gin-example/pkg/logging"
-	"github.com/go-gin-example/pkg/setting"
-	"github.com/go-gin-example/routers"
-	"github.com/go-gin-example/pkg/util"
+
+	//"github.com/go-gin-example/models"
+	//"github.com/go-gin-example/pkg/gredis"
+	//"github.com/go-gin-example/pkg/logging"
+	//"github.com/go-gin-example/pkg/setting"
+	//"github.com/go-gin-example/routers"
+	//"github.com/go-gin-example/pkg/util"
 )
 
 func init() {

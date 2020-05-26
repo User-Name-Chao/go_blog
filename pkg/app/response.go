@@ -2,8 +2,7 @@ package app
 
 import (
 	"github.com/gin-gonic/gin"
-
-	"github.com/go-gin-example/pkg/e"
+	"go_blog/go-gin-example/pkg/e"
 )
 
 type Gin struct {
@@ -25,3 +24,4 @@ func (g *Gin) Response(httpCode, errCode int, data interface{}) {
 	})
 	return
 }
+

@@ -2,12 +2,12 @@ package models
 
 import (
 	"fmt"
+	"go_blog/go-gin-example/pkg/setting"
 	"log"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 
-	"github.com/go-gin-example/pkg/setting"
 	"time"
 )
 
@@ -41,6 +41,8 @@ func Setup() {
 	db.Callback().Create().Replace("gorm:update_time_stamp", updateTimeStampForCreateCallback)
 	db.Callback().Update().Replace("gorm:update_time_stamp", updateTimeStampForUpdateCallback)
 	db.Callback().Delete().Replace("gorm:delete", deleteCallback)
+	//SetMaxOpenConns用于设置最大打开的连接数
+	//SetMaxIdleConns用于设置闲置的连接数
 	db.DB().SetMaxIdleConns(10)
 	db.DB().SetMaxOpenConns(100)
 }

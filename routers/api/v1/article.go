@@ -1,20 +1,28 @@
 package v1
 
 import (
+	"fmt"
+
+	"go_blog/go-gin-example/pkg/app"
+	"go_blog/go-gin-example/pkg/e"
+	"go_blog/go-gin-example/pkg/qrcode"
+	"go_blog/go-gin-example/pkg/setting"
+	"go_blog/go-gin-example/pkg/util"
+	"go_blog/go-gin-example/service/article_service"
+	"go_blog/go-gin-example/service/tag_service"
 	"net/http"
 
 	"github.com/Unknwon/com"
 	"github.com/astaxie/beego/validation"
 	"github.com/boombuler/barcode/qr"
 	"github.com/gin-gonic/gin"
-
-	"github.com/go-gin-example/pkg/app"
-	"github.com/go-gin-example/pkg/e"
-	"github.com/go-gin-example/pkg/qrcode"
-	"github.com/go-gin-example/pkg/setting"
-	"github.com/go-gin-example/pkg/util"
-	"github.com/go-gin-example/service/article_service"
-	"github.com/go-gin-example/service/tag_service"
+	//"github.com/go-gin-example/pkg/app"
+	//"github.com/go-gin-example/pkg/e"
+	//"github.com/go-gin-example/pkg/qrcode"
+	//"github.com/go-gin-example/pkg/setting"
+	//"github.com/go-gin-example/pkg/util"
+	//"github.com/go-gin-example/service/article_service"
+	//"github.com/go-gin-example/service/tag_service"
 )
 
 // @Summary Get a single article
@@ -137,13 +145,12 @@ func AddArticle(c *gin.Context) {
 		appG = app.Gin{C: c}
 		form AddArticleForm
 	)
-
 	httpCode, errCode := app.BindAndValid(c, &form)
 	if errCode != e.SUCCESS {
 		appG.Response(httpCode, errCode, nil)
 		return
 	}
-
+	fmt.Println(form.TagID, form.Title, form.CreatedBy, form.CoverImageUrl, form.State)
 	tagService := tag_service.Tag{ID: form.TagID}
 	exists, err := tagService.ExistByID()
 	if err != nil {

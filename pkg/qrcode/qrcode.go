@@ -1,14 +1,17 @@
 package qrcode
 
 import (
+	"go_blog/go-gin-example/pkg/file"
+	"go_blog/go-gin-example/pkg/setting"
+	"go_blog/go-gin-example/pkg/util"
 	"image/jpeg"
 
 	"github.com/boombuler/barcode"
 	"github.com/boombuler/barcode/qr"
 
-	"github.com/go-gin-example/pkg/file"
-	"github.com/go-gin-example/pkg/setting"
-	"github.com/go-gin-example/pkg/util"
+	//"github.com/go-gin-example/pkg/file"
+	//"github.com/go-gin-example/pkg/setting"
+	//"github.com/go-gin-example/pkg/util"
 )
 
 type QrCode struct {

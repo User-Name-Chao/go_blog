@@ -1,14 +1,18 @@
 package api
 
 import (
+	"go_blog/go-gin-example/pkg/app"
+	"go_blog/go-gin-example/pkg/e"
+	"go_blog/go-gin-example/pkg/logging"
+	"go_blog/go-gin-example/pkg/upload"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/go-gin-example/pkg/app"
-	"github.com/go-gin-example/pkg/e"
-	"github.com/go-gin-example/pkg/logging"
-	"github.com/go-gin-example/pkg/upload"
+	//"github.com/go-gin-example/pkg/app"
+	//"github.com/go-gin-example/pkg/e"
+	//"github.com/go-gin-example/pkg/logging"
+	//"github.com/go-gin-example/pkg/upload"
 )
 
 // @Summary Import Image

@@ -1,15 +1,15 @@
 package api
 
 import (
+	"go_blog/go-gin-example/pkg/app"
+	"go_blog/go-gin-example/pkg/e"
+	"go_blog/go-gin-example/pkg/util"
+	"go_blog/go-gin-example/service/auth_service"
 	"net/http"
 
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 
-	"github.com/go-gin-example/pkg/app"
-	"github.com/go-gin-example/pkg/e"
-	"github.com/go-gin-example/pkg/util"
-	"github.com/go-gin-example/service/auth_service"
 )
 
 type auth struct {
@@ -28,8 +28,11 @@ func GetAuth(c *gin.Context) {
 	appG := app.Gin{C: c}
 	valid := validation.Validation{}
 
-	username := c.Query("username")
-	password := c.Query("password")
+	//username := c.Query("username")
+	//password := c.Query("password")
+
+	username := c.PostForm("username")
+	password := c.PostForm("password")
 
 	a := auth{Username: username, Password: password}
 	ok, _ := valid.Valid(&a)

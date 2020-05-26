@@ -1,21 +1,27 @@
 package routers
 
 import (
-	"github.com/go-gin-example/routers/api/v2"
+	"fmt"
+	"go_blog/go-gin-example/pkg/export"
+	"go_blog/go-gin-example/pkg/qrcode"
+	"go_blog/go-gin-example/pkg/upload"
+	"go_blog/go-gin-example/routers/api"
+	"go_blog/go-gin-example/routers/api/v1"
+	v2 "go_blog/go-gin-example/routers/api/v2"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 
-	_ "github.com/go-gin-example/docs"
+	//_ "github.com/go-gin-example/docs"
 	"github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 
-	"github.com/go-gin-example/middleware/jwt"
-	"github.com/go-gin-example/pkg/export"
-	"github.com/go-gin-example/pkg/qrcode"
-	"github.com/go-gin-example/pkg/upload"
-	"github.com/go-gin-example/routers/api"
-	"github.com/go-gin-example/routers/api/v1"
+	//"github.com/go-gin-example/middleware/jwt"
+	//"github.com/go-gin-example/pkg/export"
+	//"github.com/go-gin-example/pkg/qrcode"
+	//"github.com/go-gin-example/pkg/upload"
+	//"github.com/go-gin-example/routers/api"
+	//"github.com/go-gin-example/routers/api/v1"
 )
 
 // InitRouter initialize routing information
@@ -28,16 +34,18 @@ func InitRouter() *gin.Engine {
 
 	r.StaticFS("/static", http.Dir("static/"))
 
+
+	fmt.Println("--===--",export.GetExcelFullPath())
 	r.StaticFS("/export", http.Dir(export.GetExcelFullPath()))
 	r.StaticFS("/upload/images", http.Dir(upload.GetImageFullPath()))
 	r.StaticFS("/qrcode", http.Dir(qrcode.GetQrCodeFullPath()))
 
-	r.GET("/auth", api.GetAuth)
+	r.POST("/auth", api.GetAuth)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	r.POST("/upload", api.UploadImage)
 
 	apiv1 := r.Group("/api/v1")
-	apiv1.Use(jwt.JWT())
+	//apiv1.Use(jwt.JWT())
 	{
 		//获取标签列表
 		apiv1.GET("/tags", v1.GetTags)
@@ -68,13 +76,11 @@ func InitRouter() *gin.Engine {
 
 	blogv2 := r.Group("/blog/v2")
 	{
+		blogv2.GET("/login", v2.ToLogin)
 		//获取标签列表
 		blogv2.GET("/index", v2.ToIndex)
-
-		blogv2.GET("/gettitle", v2.GetTitle)
-
-		blogv2.GET("/blogpage", v2.ToBlogPage)
 		blogv2.GET("/contact", v2.ToContact)
+		blogv2.GET("/blogpage", v2.ToBlogPage)
 		blogv2.GET("/single", v2.ToSingle)
 	}
 

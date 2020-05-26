@@ -2,16 +2,20 @@ package upload
 
 import (
 	"fmt"
+	"go_blog/go-gin-example/pkg/file"
+	"go_blog/go-gin-example/pkg/logging"
+	"go_blog/go-gin-example/pkg/setting"
+	"go_blog/go-gin-example/pkg/util"
 	"log"
 	"mime/multipart"
 	"os"
 	"path"
 	"strings"
 
-	"github.com/go-gin-example/pkg/file"
-	"github.com/go-gin-example/pkg/logging"
-	"github.com/go-gin-example/pkg/setting"
-	"github.com/go-gin-example/pkg/util"
+	//"github.com/go-gin-example/pkg/file"
+	//"github.com/go-gin-example/pkg/logging"
+	//"github.com/go-gin-example/pkg/setting"
+	//"github.com/go-gin-example/pkg/util"
 )
 
 // GetImageFullUrl get the full access path

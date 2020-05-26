@@ -1,6 +1,9 @@
 package article_service
 
 import (
+	"go_blog/go-gin-example/pkg/file"
+	"go_blog/go-gin-example/pkg/qrcode"
+	"go_blog/go-gin-example/pkg/setting"
 	"image"
 	"image/draw"
 	"image/jpeg"
@@ -9,9 +12,9 @@ import (
 
 	"github.com/golang/freetype"
 
-	"github.com/go-gin-example/pkg/file"
-	"github.com/go-gin-example/pkg/qrcode"
-	"github.com/go-gin-example/pkg/setting"
+	//"github.com/go-gin-example/pkg/file"
+	//"github.com/go-gin-example/pkg/qrcode"
+	//"github.com/go-gin-example/pkg/setting"
 )
 
 type ArticlePoster struct {

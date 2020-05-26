@@ -30,6 +30,7 @@ type App struct {
 
 var AppSetting = &App{}
 
+//Server 服务
 type Server struct {
 	RunMode      string
 	HttpPort     int

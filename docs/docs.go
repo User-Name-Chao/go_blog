@@ -6,8 +6,9 @@ package docs
 
 import (
 	"bytes"
+	"html/template"
 
-	"github.com/alecthomas/template"
+	//"github.com/alecthomas/template"
 	"github.com/swaggo/swag"
 )
 

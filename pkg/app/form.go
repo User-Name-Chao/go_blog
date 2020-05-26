@@ -3,9 +3,10 @@ package app
 import (
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
+	"go_blog/go-gin-example/pkg/e"
 	"net/http"
 
-	"github.com/go-gin-example/pkg/e"
+	//"github.com/go-gin-example/pkg/e"
 )
 
 // BindAndValid binds and validates data

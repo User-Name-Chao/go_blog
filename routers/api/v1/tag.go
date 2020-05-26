@@ -1,19 +1,27 @@
 package v1
 
 import (
+	"fmt"
+
+	"go_blog/go-gin-example/pkg/app"
+	"go_blog/go-gin-example/pkg/e"
+	"go_blog/go-gin-example/pkg/export"
+	"go_blog/go-gin-example/pkg/logging"
+	"go_blog/go-gin-example/pkg/setting"
+	"go_blog/go-gin-example/pkg/util"
+	"go_blog/go-gin-example/service/tag_service"
 	"net/http"
 
 	"github.com/Unknwon/com"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
-
-	"github.com/go-gin-example/pkg/app"
-	"github.com/go-gin-example/pkg/e"
-	"github.com/go-gin-example/pkg/export"
-	"github.com/go-gin-example/pkg/logging"
-	"github.com/go-gin-example/pkg/setting"
-	"github.com/go-gin-example/pkg/util"
-	"github.com/go-gin-example/service/tag_service"
+	//"github.com/go-gin-example/pkg/app"
+	//"github.com/go-gin-example/pkg/e"
+	//"github.com/go-gin-example/pkg/export"
+	//"github.com/go-gin-example/pkg/logging"
+	//"github.com/go-gin-example/pkg/setting"
+	//"github.com/go-gin-example/pkg/util"
+	//"github.com/go-gin-example/service/tag_service"
 )
 
 // @Summary Get multiple article tags
@@ -26,7 +34,8 @@ import (
 func GetTags(c *gin.Context) {
 	appG := app.Gin{C: c}
 	name := c.Query("name")
-	state := -1
+	fmt.Println("=========", name)
+	state := 1
 	if arg := c.Query("state"); arg != "" {
 		state = com.StrTo(arg).MustInt()
 	}
@@ -52,6 +61,17 @@ func GetTags(c *gin.Context) {
 	appG.Response(http.StatusOK, e.SUCCESS, map[string]interface{}{
 		"lists": tags,
 		"total": count,
+	})
+	// c.HTML(http.StatusOK, "index.html", gin.H{
+	// 	"title": "Go!",
+	// 	"tags":  tags,
+	// 	"count": count,
+	// })
+}
+
+func ToIndex(c *gin.Context) {
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"title": "hello Go",
 	})
 }
 
@@ -86,6 +106,7 @@ func AddTag(c *gin.Context) {
 		CreatedBy: form.CreatedBy,
 		State:     form.State,
 	}
+	fmt.Printf("=====%v", tagService)
 	exists, err := tagService.ExistByName()
 	if err != nil {
 		appG.Response(http.StatusInternalServerError, e.ERROR_EXIST_TAG_FAIL, nil)
@@ -102,7 +123,7 @@ func AddTag(c *gin.Context) {
 		return
 	}
 
-	appG.Response(http.StatusOK, e.SUCCESS, nil)
+	appG.Response(http.StatusOK, e.SUCCESS, tagService)
 }
 
 type EditTagForm struct {
