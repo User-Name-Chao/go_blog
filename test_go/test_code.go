@@ -1,3 +1,11 @@
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
 func main() {
-	fastrand.Uint32n(maxN uint32) uint32
+	d := fastrand.Uint32()
+	fmt.Println("---", d, reflect.TypeOf(d).String())
 }

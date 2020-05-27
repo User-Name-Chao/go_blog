@@ -4,11 +4,13 @@ go 1.12
 
 require (
 	github.com/360EntSecGroup-Skylar/excelize v0.0.0-20180527032555-9e463b461434
+	github.com/Bowery/prompt v0.0.0-20190916142128-fa8279994f75 // indirect
 	github.com/PuerkitoBio/purell v1.1.0
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578
 	github.com/Unknwon/com v0.0.0-20170819223952-7677a1d7c113
 	github.com/astaxie/beego v0.0.0-20171218111859-f16688817aa4
 	github.com/boombuler/barcode v0.0.0-20180315051053-3c06908149f7
+	github.com/dchest/safefile v0.0.0-20151022103144-855e8d98f185 // indirect
 	github.com/dgrijalva/jwt-go v3.1.0+incompatible
 	github.com/fvbock/endless v0.0.0-20170109170031-447134032cb6
 	github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7
@@ -22,9 +24,11 @@ require (
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
 	github.com/golang/protobuf v1.2.0
 	github.com/gomodule/redigo v0.0.0-20180401191855-9352ab68be13
+	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/jinzhu/gorm v0.0.0-20180213101209-6e1387b44c64
 	github.com/jinzhu/inflection v0.0.0-20170102125226-1c35d901db3d
 	github.com/json-iterator/go v0.0.0-20180408002546-f89479f5c0d8
+	github.com/kardianos/govendor v1.0.9 // indirect
 	github.com/mailru/easyjson v0.0.0-20180823135443-60711f1a8329
 	github.com/mattn/go-isatty v0.0.4
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
@@ -32,8 +36,10 @@ require (
 	github.com/swaggo/gin-swagger v0.0.0-20190110070702-0c6fcfd3c7f3
 	github.com/swaggo/swag v1.4.0
 	github.com/tealeg/xlsx v0.0.0-20180419195153-f36fa3be8893
-	github.com/ugorji/go v1.1.7
-	golang.org/x/image v0.0.0-20190703141733-d6a02ce849c9 // indirect
+	github.com/ugorji/go v1.1.2
+	golang.org/x/image v0.0.0-20200430140353-33d19683fad8 // indirect
 	gopkg.in/go-playground/validator.v8 v8.18.2
 	gopkg.in/yaml.v2 v2.2.2
 )
+
+replace github.com/ugorji/go v0.0.0-20180205165114-b5b949564861 => github.com/ugorji/go/codec v0.0.0-20181209151446-772ced7fd4c2
